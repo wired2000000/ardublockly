@@ -69,6 +69,7 @@ def load_arduino_cli(sketch_path):
 
     settings = ServerCompilerSettings()
 
+
     # Check if CLI flags have been set
     if not settings.compiler_dir:
         success = False
@@ -94,6 +95,19 @@ def load_arduino_cli(sketch_path):
         ide_mode = settings.load_ide_option
         # Concatenates the CLI command and execute if the flags are valid
         cli_command = [settings.compiler_dir, "%s" % sketch_path]
+        compliler_path=settings.compiler_dir.replace("\\arduino.exe","")
+        cli_fast=(compliler_path,'\\arduino-builder.exe',
+            ' -hardware ',compliler_path, '\\hardware',
+            ' -tools ',compliler_path, '\\tools-builder',
+            ' -tools ',compliler_path, '\\hardware\\tools\\avr',
+            ' -built-in-libraries ',compliler_path, '\\libraries',
+            ' -libraries ',compliler_path, '\\libraries',
+            ' -build-path ',sketch_path.replace("\\ArdublocklySketch.ino","\\build"), 
+            ' -fqbn ',
+            settings.get_arduino_board_flag(),
+            ' ',
+            sketch_path)
+        cli_command_fast="".join(cli_fast)
         if settings.load_ide_option == 'upload':
             print('\nUploading sketch to Arduino...')
             cli_command.append('--upload')
@@ -101,6 +115,7 @@ def load_arduino_cli(sketch_path):
             cli_command.append(settings.get_serial_port_flag())
             cli_command.append('--board')
             cli_command.append(settings.get_arduino_board_flag())
+
         elif settings.load_ide_option == 'verify':
             print('\nVerifying the sketch...')
             cli_command.append('--board')
@@ -108,7 +123,8 @@ def load_arduino_cli(sketch_path):
             cli_command.append('--verify')
         elif settings.load_ide_option == 'open':
             print('\nOpening the sketch in the Arduino IDE...')
-        print('CLI command: %s' % ' '.join(cli_command))
+        if sys.platform != 'win32':
+            print('CLI command: %s' % ' '.join(cli_command))
         # Python 2 needs the input to subprocess.Popen to be in system encoding
         if sys.version_info[0] < 3:
             sys_locale = locale.getpreferredencoding()
@@ -118,8 +134,7 @@ def load_arduino_cli(sketch_path):
             # Open IDE in a subprocess without capturing outputs
             subprocess.Popen(cli_command, shell=False)
             exit_code = 0
-        else:
-            # Launch the Arduino CLI in a subprocess and capture output data
+        elif sys.platform != 'win32' or settings.load_ide_option == 'verify':
             process = subprocess.Popen(
                 cli_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                 shell=False)
@@ -139,6 +154,56 @@ def load_arduino_cli(sketch_path):
                               (err_out, exit_code)
                     exit_code = 50
 
+        else:
+            # Launch the Arduino CLI in a subprocess and capture output data
+            print('BUILDER CLI command: %s' % cli_command_fast)
+            #my_env = os.environ.copy()
+            process = subprocess.Popen(
+                cli_command_fast, stdout=subprocess.PIPE, stderr=subprocess.PIPE, #env=my_env,
+                shell=False)
+            std_out, err_out = process.communicate()
+            std_out = six.u(std_out)
+            err_out = six.u(err_out)
+            exit_code = process.returncode
+            print('Arduino output:\n%s' % std_out)
+            print('Arduino Error output:\n%s' % err_out)
+            print('Arduino Exit code: %s' % exit_code)
+            # For some reason Arduino CLI can return 256 on success
+            if (process.returncode != 0) and (process.returncode != 256):
+                success = False
+                if exit_code >= 50:
+                    # Custom exit codes from server start at 50
+                    err_out = '%s\nUnexpected Arduino builder exit error code: %s' % \
+                              (err_out, exit_code)
+                    exit_code = 50 
+            cli_fast=(compliler_path, "\\hardware\\tools\\avr\\bin\\avrdude.exe",
+            ' -C',compliler_path, '\\hardware\\tools\\avr\\etc\\avrdude.conf',
+            ' -q -q -patmega328p -carduino',
+            ' -P',
+            settings.get_serial_port_flag(),
+            ' -b115200 -D -Uflash:w:',
+            sketch_path.replace("ArdublocklySketch.ino","build\\ArdublocklySketch.ino"),
+            '.hex:i')
+            cli_command_fast="".join(cli_fast)
+            print('FLASHER CLI command: %s' % cli_command_fast)
+            #my_env = os.environ.copy()
+            process = subprocess.Popen(
+                cli_command_fast, stdout=subprocess.PIPE, stderr=subprocess.PIPE, #env=my_env,
+                shell=False)
+            std_out, err_out = process.communicate()
+            std_out = six.u(std_out)
+            err_out = six.u(err_out)
+            exit_code = process.returncode
+            print('Avrdude output:\n%s' % std_out)
+            print('Avrdude Error output:\n%s' % err_out)
+            print('Avrdude Exit code: %s' % exit_code)
+            if (process.returncode != 0) and (process.returncode != 256):
+                success = False
+                if exit_code >= 50:
+                    # Custom exit codes from server start at 50
+                    err_out = '%s\nUnexpected Arduino flasher exit error code: %s' % \
+                              (err_out, exit_code)
+                    exit_code = 50 
     return success, ide_mode, std_out, err_out, exit_code
 
 
