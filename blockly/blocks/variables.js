@@ -92,13 +92,24 @@ Blockly.Blocks['variables_set'] = {
    * @this Blockly.Block
    */
   init: function() {
+	var varName=Blockly.Msg.VARIABLES_DEFAULT_NAME;
+	var count=1;
+	if (Blockly.Arduino.variables_!= undefined)
+	{
+		while (Blockly.Arduino.variables_[varName]!= undefined)
+		{
+			varName=Blockly.Msg.VARIABLES_DEFAULT_NAME+"_"+count;
+			count++;
+
+		}
+	}
     this.jsonInit({
       "message0": Blockly.Msg.VARIABLES_SET,
       "args0": [
         {
           "type": "field_variable",
           "name": "VAR",
-          "variable": Blockly.Msg.VARIABLES_DEFAULT_NAME
+          "variable": varName
         },
         {
           "type": "input_value",

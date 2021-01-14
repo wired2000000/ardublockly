@@ -293,9 +293,9 @@ Blockly.Connection.prototype.canConnectWithReason_ = function(target) {
   } else if (this.sourceBlock_ && target.getSourceBlock() &&
       this.sourceBlock_.workspace !== target.getSourceBlock().workspace) {
     return Blockly.Connection.REASON_DIFFERENT_WORKSPACES;
-  } else if (!this.checkType_(target)) {
-    return Blockly.Connection.REASON_CHECKS_FAILED;
-  }
+  } //else if (!this.checkType_(target)) {
+    //return Blockly.Connection.REASON_CHECKS_FAILED;
+  //}
   return Blockly.Connection.CAN_CONNECT;
 };
 

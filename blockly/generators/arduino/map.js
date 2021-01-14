@@ -29,3 +29,22 @@ Blockly.Arduino['base_map'] = function(block) {
   var code = 'map(' + valueNum + ', 0, 1024, 0, ' + valueDmax + ')';
   return [code, Blockly.Arduino.ORDER_NONE];
 };
+
+Blockly.Arduino['base_map_advanced'] = function(block) {
+  var valueNum = Blockly.Arduino.valueToCode(
+      block, 'NUM', Blockly.Arduino.ORDER_NONE) || '0';
+  var valueInmin = Blockly.Arduino.valueToCode(
+      block, 'INMIN', Blockly.Arduino.ORDER_ATOMIC) || '0';
+	  
+  var valueInmax = Blockly.Arduino.valueToCode(
+      block, 'INMAX', Blockly.Arduino.ORDER_ATOMIC) || '0';
+  var valueDmin = Blockly.Arduino.valueToCode(
+      block, 'DMIN', Blockly.Arduino.ORDER_ATOMIC) || '0';
+	  
+  var valueDmax = Blockly.Arduino.valueToCode(
+      block, 'DMAX', Blockly.Arduino.ORDER_NONE) || '0';
+
+
+  var code = 'map(' + valueNum + ', '+valueInmin+', '+valueInmax+', '+valueDmin+', ' + valueDmax + ')';
+  return [code, Blockly.Arduino.ORDER_NONE];
+};

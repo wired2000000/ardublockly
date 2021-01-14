@@ -13,11 +13,11 @@
   <link rel="stylesheet" href="ardublockly.css" media="screen,projection">
 
   <!-- Ardublockly - These three files contain the compress version -->
-  <script src="../blockly/blockly_compressed.js"></script>
-  <script src="../blockly/blocks_compressed.js"></script>
-  <script src="../blockly/arduino_compressed.js"></script>
+  <!--script src="../blockly/blockly_compressed.js"></script>
+  <!--script src="../blockly/blocks_compressed.js"></script>
+  <!--script src="../blockly/arduino_compressed.js"></script-->
   <!-- To use the uncompressed version comment out the above and comment in the ones below -->
-  <!--script src="../blockly/blockly_uncompressed.js"></script>
+  <script src="../blockly/blockly_uncompressed.js"></script>
   <script src="../blockly/blocks/logic.js"></script>
   <script src="../blockly/blocks/loops.js"></script>
   <script src="../blockly/blocks/math.js"></script>
@@ -36,7 +36,27 @@
   <script src="../blockly/blocks/arduino/time.js"></script>
   <script src="../blockly/blocks/arduino/tone.js"></script>
   <script src="../blockly/blocks/arduino/variables.js"></script>
+  <script src="../blockly/blocks/arduino/carcontrol.js"></script>
+  <script src="../blockly/blocks/arduino/carcontrol_simple.js?v=1.1.3"></script>
+  <script src="../blockly/blocks/arduino/tcs3200.js"></script>
+  <script src="../blockly/blocks/arduino/imu.js"></script>
+  <script src="../blockly/blocks/arduino/nfc.js"></script>
+  <script src="../blockly/blocks/arduino/softwareserial.js"></script>
+  <script src="../blockly/blocks/arduino/isr.js"></script>
+  <script src="../blockly/blocks/arduino/sd.js"></script>
+  <script src="../blockly/blocks/arduino/pid.js"></script>
+  <script src="../blockly/blocks/arduino/misc.js"></script>
+  <script src="../blockly/blocks/arduino/cansat.js"></script>
+  <script src="../blockly/blocks/arduino/svante.js"></script>
+  <script src="../blockly/blocks/arduino/dfplayer.js"></script>
+  <script src="../blockly/blocks/arduino/accelstepper.js"></script>
+  <script src="../blockly/blocks/arduino/Scoop.js"></script>
+  <script src="../blockly/blocks/arduino/adafruit_motor.js"></script>  
+  <script src="../blockly/blocks/arduino/lists.js"></script> 
+  
   <script src="../blockly/generators/arduino.js"></script>
+  <script src="../blockly/generators/arduino/carcontrol.js"></script>
+  <script src="../blockly/generators/arduino/carcontrol_simple.js?v=1.1.2"></script>
   <script src="../blockly/generators/arduino/boards.js"></script>
   <script src="../blockly/generators/arduino/io.js"></script>
   <script src="../blockly/generators/arduino/lists.js"></script>
@@ -52,8 +72,21 @@
   <script src="../blockly/generators/arduino/text.js"></script>
   <script src="../blockly/generators/arduino/time.js"></script>
   <script src="../blockly/generators/arduino/tone.js"></script>
-  <script src="../blockly/generators/arduino/variables.js"></script-->
-
+  <script src="../blockly/generators/arduino/variables.js"></script>
+  <script src="../blockly/generators/arduino/tcs3200.js"></script>
+  <script src="../blockly/generators/arduino/imu.js"></script>
+  <script src="../blockly/generators/arduino/nfc.js"></script>
+  <script src="../blockly/generators/arduino/softwareserial.js"></script>
+  <script src="../blockly/generators/arduino/isr.js"></script>
+  <script src="../blockly/generators/arduino/sd.js"></script>
+  <script src="../blockly/generators/arduino/pid.js"></script>
+  <script src="../blockly/generators/arduino/misc.js"></script>
+  <script src="../blockly/generators/arduino/cansat.js"></script>
+  <script src="../blockly/generators/arduino/svante.js"></script>
+  <script src="../blockly/generators/arduino/dfplayer.js"></script>
+  <script src="../blockly/generators/arduino/accelstepper.js"></script>
+  <script src="../blockly/generators/arduino/SCoop.js?v=1.1.4"></script>
+  <script src="../blockly/generators/arduino/adafruit_motor.js"></script>
   <!-- Default language js files, user selection appended to head on load -->
   <script src="../blockly/msg/js/en.js"></script>
   <script src="msg/en.js"></script>
@@ -180,7 +213,7 @@
               <pre id="content_arduino" class="content content_height_transition content_arduino_large"></pre>
             </div>
           </li>
-          <li>
+		  <li>
             <div class="collapsible-header" id="xml_collapsible_header">
               <span class="collapsible_logo">&#60; &#62;</span>
               <span class="translatable_blocksXml">Blocks XML</span>
@@ -189,12 +222,14 @@
               <a class="btn-floating btn-large waves-effect waves-light arduino_teal z-depth-1-half" id="button_load_xml"><i class="mdi-action-extension"></i></a>
               <textarea id="content_xml" class="content content_height_transition content_xml_large" wrap="soft"></textarea>
             </div>
-          </li>
+          </li> 
         </ul>
       </div>
     </div>
   </div>
-
+  <xml id="startBlocks" xmlns="http://www.w3.org/1999/xhtml">
+    <block type="arduino_functions" id="X3y_KRbk~=WmPJ?HEpa%" inline="true" x="109" y="82"></block>
+  </xml>
   <!-- IDE Output content -->
   <div class="ide_output_wrapper">
     <ul class="collapsible ide_output_collapsible" data-collapsible="expandable">

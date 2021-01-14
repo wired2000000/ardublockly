@@ -40,6 +40,9 @@ Blockly.Arduino['serial_print'] = function(block) {
   } else {
     var code = serialId + '.print(' + content + ');\n';
   }
+  var serialSetupCode = serialId + '.begin(' + 9600 + ');';
+  Blockly.Arduino.addSetup('serial_' + serialId, serialSetupCode, false);
+  
   return code;
 };
 

@@ -111,6 +111,9 @@ Blockly.Arduino['math_single'] = function(block) {
     case 'POW10':
       code = 'pow(10,' + arg + ')';
       break;
+    case 'POW2':
+      code = 'pow(2,' + arg + ')';
+      break;
     case 'ROUND':
       code = 'round(' + arg + ')';
       break;
@@ -121,13 +124,13 @@ Blockly.Arduino['math_single'] = function(block) {
       code = 'floor(' + arg + ')';
       break;
     case 'SIN':
-      code = 'sin(' + arg + ' / 180 * Math.PI)';
+      code = 'sin(' + arg +')';
       break;
     case 'COS':
-      code = 'cos(' + arg + ' / 180 * Math.PI)';
+      code = 'cos(' + arg +')';
       break;
     case 'TAN':
-      code = 'tan(' + arg + ' / 180 * Math.PI)';
+      code = 'tan(' + arg +')';
       break;
   }
   if (code) {
@@ -151,6 +154,14 @@ Blockly.Arduino['math_single'] = function(block) {
       throw 'Unknown math operator: ' + operator;
   }
   return [code, Blockly.Arduino.ORDER_MULTIPLICATIVE];
+};
+
+Blockly.Arduino['math_atan2'] = function(block) {
+  var cat_op = Blockly.Arduino.valueToCode(block, 'cat_op', Blockly.Arduino.ORDER_ATOMIC);
+  var cat_ady = Blockly.Arduino.valueToCode(block, 'cat_ady', Blockly.Arduino.ORDER_ATOMIC);
+  var code = 'atan2('+ cat_op+','+cat_ady+')';
+
+  return [code, Blockly.Arduino.ORDER_NONE];
 };
 
 /**
@@ -342,4 +353,13 @@ Blockly.Arduino['math_random_int'] = function(block) {
  */
 Blockly.Arduino['math_random_float'] = function(block) {
   return ['(rand() / RAND_MAX)', Blockly.Arduino.ORDER_UNARY_POSTFIX];
+};
+
+Blockly.Arduino['pow'] = function(block) {
+  var value_base = Blockly.Arduino.valueToCode(block, 'base', Blockly.Arduino.ORDER_ATOMIC);
+  var value_exp = Blockly.Arduino.valueToCode(block, 'exp', Blockly.Arduino.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'pow('+value_base+','+value_exp+')';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Arduino.ORDER_NONE];
 };
