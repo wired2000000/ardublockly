@@ -309,7 +309,7 @@
 	"VARIABLES_SET_CREATE_GET": "Δημιούργησε «πάρε %1»",
 	"PROCEDURES_DEFNORETURN_HELPURL": "https://en.wikipedia.org/wiki/Procedure_%28computer_science%29",
 	"PROCEDURES_DEFNORETURN_TITLE": "στο",
-	"PROCEDURES_DEFNORETURN_PROCEDURE": "κάνε κάτι",
+	"PROCEDURES_DEFNORETURN_PROCEDURE": "do_something",
 	"PROCEDURES_BEFORE_PARAMS": "με:",
 	"PROCEDURES_CALL_BEFORE_PARAMS": "με:",
 	"PROCEDURES_DEFNORETURN_TOOLTIP": "Δημιουργεί μια συνάρτηση χωρίς έξοδο.",
