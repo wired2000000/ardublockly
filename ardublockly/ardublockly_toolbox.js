@@ -120,7 +120,7 @@ Ardublockly.TOOLBOX_XML =
 '    </block>' +
 '    <block type="variables_set_type"></block>' +
 '  </category>' +
-'	<category id="catLists"  name="Lists">' +
+/*'	<category id="catLists"  name="Lists">' +
 '		<block type="lists_create_with"></block>	' +	
 '		<block type="lists_getIndex">' +
 '			<value name="AT">' +
@@ -163,7 +163,19 @@ Ardublockly.TOOLBOX_XML =
 '            </value>' +		
 '		</block>' +
 '		<block type="lists_length_text"></block>' +
-'	</category>' +
+'	</category>' +*/
+'  <category id="catArrays" name="Arrays">' +
+'       <block type="array_define_empty">' +
+'           <field name="ARRAY_SIZE">1</field>' +
+'       </block>' +
+'       <block type="array_define">' +
+'           <field name="ARRAY_SIZE">1</field>' +
+'       </block>' +
+'       <block type="array_get">' +
+'       </block>' +
+'       <block type="array_set">' +
+'       </block>' +
+'  </category>' +
 '  <sep></sep>' +
 '  <category id="catFunctions" name="Functions" custom="PROCEDURE"></category>' +
 '  <sep></sep>' +
@@ -276,8 +288,8 @@ Ardublockly.TOOLBOX_XML =
 '  </category>' +
 '  <sep></sep>' +
 
+
 '  <category id="catControl" name="Car Control">' +
-    
 '    <block type="smartcar_l298n_simple">'+
 '      <value name="left">' +
 '        <shadow type="math_number">' +
@@ -295,11 +307,47 @@ Ardublockly.TOOLBOX_XML =
 '   </block>' +
 '	</category>'+
 '  <sep></sep>'+ 
-
    
 '  <sep></sep>' +
 '	<category id="catAdvanced" name="Advanced">' +
 
+'  <category id="catLCD" name="LiquidCrystal">' +
+'    <block type="lcd_init">' +
+'      <field name="LCD_NUMBER_OF_PINS">4</field>' +
+'      <field name="LCD_RW">no</field>' +
+'      <field name="RS">11</field>' +
+'      <field name="EN">12</field>' +
+'      <field name="D4">2</field>' +
+'      <field name="D5">3</field>' +
+'      <field name="D6">4</field>' +
+'      <field name="D7">5</field>' +
+'      <value name="LCD_ROWS">' +
+'        <block type="math_number">' +
+'          <field name="NUM">2</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="LCD_COLS">' +
+'        <block type="math_number">' +
+'          <field name="NUM">16</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
+'    <block type="lcd_print"></block>' +
+'  </category>' +
+' <category id="catMusical" name="Musique">' +
+'       <block type="melody">' +
+'           <field name="PIN">9</field>' +
+'           <field name="BPM">250</field>' +
+'       </block>' +
+'       <block type="play_note">'+
+'			<value name="NOTE">'+
+'              <block type="note"></block>' +
+'		    </value>'+
+'		</block>' +
+'           <block type="note"></block>' +
+//'           <block type="note2"></block>' +
+//'           <block type="note3"></block>' +
+'  </category>' +
 
 '	<category id="catAdvanced_car" name="Advanced_car">' +
 '			<block type="svante_go">'+
