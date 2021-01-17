@@ -28,7 +28,7 @@ Ardublockly.LOCALISED_TEXT = {
   /* Arduino console output */
   arduinoOpMainTitle: "Arduino IDE output",
   arduinoOpWaiting: "Waiting for the IDE output...",
-  arduinoOpUploadedTitle: "Successfully Uploaded Sketch",
+  arduinoOpUploadedTitle: "Ο κώδικας φορτώθηκε με επιτυχία",
   arduinoOpVerifiedTitle: "Successfully Verified Sketch",
   arduinoOpOpenedTitle: "Sketch opened in IDE",
   arduinoOpOpenedBody: "The sketch should be loaded in the Arduino IDE.",
@@ -88,7 +88,7 @@ Ardublockly.LOCALISED_TEXT = {
   cancel: "Cancel",
   return: "Return",
   /* Cards */
-  arduinoSourceCode: "Arduino Source Code",
+  arduinoSourceCode: "Κώδικας Arduino",
   blocksXml: "Blocks XML",
   /* Toolbox Categories*/
   catLogic: "Λογική",
@@ -113,4 +113,9 @@ Ardublockly.LOCALISED_TEXT = {
   catIMU:"Επιταχ. γυροσκόπιο",
   catSD:"Αρχεία κάρτας SD",
   catPID:"Αυτ. έλεγχος PID",
+  //catArduino: "Arduino",
+  //catAddon: "Addons",
+  catLCD: "οθόνη LCD",
+  catArrays: "Πίνακες",
+  catMusical:"Μουσική"
 };

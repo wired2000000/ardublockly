@@ -113,4 +113,9 @@ Ardublockly.LOCALISED_TEXT = {
   catIMU:"Acc. gyro sensor",
   catSD:"SD files",
   catPID:"PID control system",
+  //catArduino: "Arduino",
+  //catAddon: "Addons",
+  catLCD: "LCD display",
+  catArrays: "Arrays",
+  catMusical:"Music"
 };
