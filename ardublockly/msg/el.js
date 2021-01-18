@@ -117,5 +117,6 @@ Ardublockly.LOCALISED_TEXT = {
   //catAddon: "Addons",
   catLCD: "οθόνη LCD",
   catArrays: "Πίνακες",
-  catMusical:"Μουσική"
+  catMusical:"Μουσική",
+  catRawCode:"Κώδικας"
 };
