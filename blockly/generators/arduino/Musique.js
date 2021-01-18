@@ -32,7 +32,7 @@ Blockly.Arduino['note'] = function(block) {
       case "NOTE_SOL": freq = 392; break;
       case "NOTE_LA": freq = 440; break;
       case "NOTE_SI": freq = 494; break;
-	  case "REST": freq = 0; break;
+	  case "REST":  freq =30000 ; break;
     }
     for ( var i = 5 ; i <= number_octave ; i ++ )
       freq *= 2;
@@ -83,7 +83,8 @@ Blockly.Arduino['play_note'] = function(block) {
     }
     if ( checkbox_dot ) duree *= 1.5;
     var code = 'tone(' + instName + '_data [0],'+value_note+');\n' +
-      'delay((int) ('+duree+'*' + instName + '_data [1]);\n' +
+      'delay((int) ('+duree+'*' + instName + '_data [1]));\n' +
+	  //'sleep((int) ('+duree+'*' + instName + '_data [1]));\n' +
       'noTone(' + instName + '_data [0]);\n';
     return code;
   };

@@ -64,7 +64,12 @@ Blockly.Types.DECIMAL = new Blockly.Type({
                     Blockly.Types.NUMBER,
                     Blockly.Types.LARGE_NUMBER]
 });
-
+/** Raw code */
+Blockly.Types.RAWCODE = new Blockly.Type({
+  typeId: 'Raw Code',
+  typeMsgName: 'ARD_TYPE_RAW_CODE',
+  compatibleTypes: []
+});
 /** Array/List of items. */
 Blockly.Types.ARRAY = new Blockly.Type({
   typeId: 'Array',

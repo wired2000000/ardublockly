@@ -776,6 +776,13 @@ Ardublockly.TOOLBOX_XML =
 '	 </block>' +
 '  </category>' +
 '  <sep></sep>' +
+'  <category id="catRawCode" name="Raw Code">' +
+'    <block type="raw_func"></block>' +
+'    <block type="raw_code"></block>' +
+'    <block type="raw_output"></block>' +
+'  </category>' +
+
+'  <sep></sep>' +
 '  <category id="catPID" name="PID">' +
 '    <block type="pid_setup"></block>' +
 '    <block type="pid_compute"></block>' +
@@ -785,5 +792,5 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="pid_settime"></block>' +
 '  </category>' +
 ' </category>' +
-'  <sep></sep>' +
+
 '</xml>';

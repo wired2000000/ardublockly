@@ -31,7 +31,7 @@ Blockly.Blocks['melody'] = {
 Blockly.Blocks['note'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField(new Blockly.FieldDropdown([["do","NOTE_DO"], ["ré","NOTE_RE"], ["mi","NOTE_MI"], ["fa","NOTE_FA"], ["sol","NOTE_SOL"], ["la","NOTE_LA"], ["si","NOTE_SI"], ["Blockly.Msg.ARD_REST","REST"]]), "NOTE")
+          .appendField(new Blockly.FieldDropdown([["do","NOTE_DO"], ["ré","NOTE_RE"], ["mi","NOTE_MI"], ["fa","NOTE_FA"], ["sol","NOTE_SOL"], ["la","NOTE_LA"], ["si","NOTE_SI"], [Blockly.Msg.ARD_REST,"REST"]]), "NOTE")
           .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ARD_NONE,"MOD_NONE"], [Blockly.Msg.ARD_SHARP,"MOD_DIESE"], [Blockly.Msg.ARD_FLAT,"MOD_BEMOL"]]), "MODIFICATEUR")
           .appendField("octave")
           .appendField(new Blockly.FieldNumber('4'), "OCTAVE");

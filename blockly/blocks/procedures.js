@@ -466,12 +466,12 @@ Blockly.Blocks['procedures_defreturn'] = {
     },
     //setStatements_: Blockly.Blocks['procedures_defnoreturn'].setStatements_,
 
-    updateParams_: Blockly.Blocks['procedures_defnoreturn'].updateParams_,
-    mutationToDom: Blockly.Blocks['procedures_defnoreturn'].mutationToDom,
-    domToMutation: Blockly.Blocks['procedures_defnoreturn'].domToMutation,
-    decompose: Blockly.Blocks['procedures_defnoreturn'].decompose,
-    compose: Blockly.Blocks['procedures_defnoreturn'].compose,
-    dispose: Blockly.Blocks['procedures_defnoreturn'].dispose,
+    //updateParams_: Blockly.Blocks['procedures_defnoreturn'].updateParams_,
+    //mutationToDom: Blockly.Blocks['procedures_defnoreturn'].mutationToDom,
+    //domToMutation: Blockly.Blocks['procedures_defnoreturn'].domToMutation,
+    //decompose: Blockly.Blocks['procedures_defnoreturn'].decompose,
+    //compose: Blockly.Blocks['procedures_defnoreturn'].compose,
+    //dispose: Blockly.Blocks['procedures_defnoreturn'].dispose,
     /**
      * Return the signature of this procedure definition.
      * @return {!Array} Tuple containing three elements:

@@ -99,6 +99,8 @@ Blockly.Arduino.init = function(workspace) {
   Blockly.Arduino.codeFunctions_ = Object.create(null);
   // Create a dictionary of functions created by the user
   Blockly.Arduino.userFunctions_ = Object.create(null);
+  // Add user generated code block suport
+  Blockly.Arduino.userCode_ = Object.create(null);
   // Create a dictionary mapping desired function names in definitions_
   // to actual function names (to avoid collisions with user functions)
   Blockly.Arduino.functionNames_ = Object.create(null);
@@ -140,12 +142,12 @@ Blockly.Arduino.finish = function(code) {
   if (includes.length) {
     includes.push('\n');
   }
-  for (var name in Blockly.Arduino.variables_) {
-    variables.push(Blockly.Arduino.variables_[name]);
-  }
-  if (variables.length) {
-    variables.push('\n');
-  }
+ // for (var name in Blockly.Arduino.variables_) {
+ //   variables.push(Blockly.Arduino.variables_[name]);
+ // }
+ // if (variables.length) {
+ //   variables.push('\n');
+ // }
   for (var name in Blockly.Arduino.definitions_) {
     definitions.push(Blockly.Arduino.definitions_[name]);
   }
@@ -246,9 +248,11 @@ Blockly.Arduino.addVariable = function(varName, code, overwrite) {
  */
 Blockly.Arduino.addSetup = function(setupTag, code, overwrite) {
   var overwritten = false;
+  if (Blockly.Arduino.setups_!==undefined){
   if (overwrite || (Blockly.Arduino.setups_[setupTag] === undefined)) {
     Blockly.Arduino.setups_[setupTag] = code;
     overwritten = true;
+  }
   }
   return overwritten;
 };
@@ -281,6 +285,7 @@ Blockly.Arduino.addFunction = function(preferedName, code) {
  * @param {!string} warningTag Description.
  */
 Blockly.Arduino.reservePin = function(block, pin, pinType, warningTag) {
+  if (Blockly.Arduino.pins_!== undefined) {	
   if (Blockly.Arduino.pins_[pin] !== undefined) {
     if (Blockly.Arduino.pins_[pin] != pinType) {
       block.setWarningText(Blockly.Msg.ARD_PIN_WARN1.replace('%1', pin)
@@ -292,6 +297,7 @@ Blockly.Arduino.reservePin = function(block, pin, pinType, warningTag) {
   } else {
     Blockly.Arduino.pins_[pin] = pinType;
     block.setWarningText(null, warningTag);
+  }
   }
 };
 
@@ -382,7 +388,7 @@ Blockly.Arduino.getArduinoType_ = function(typeBlockly) {
     case Blockly.Types.CHARACTER.typeId:
       return 'char';
     case Blockly.Types.BOOLEAN.typeId:
-      return 'boolean';
+      return 'bool';
     case Blockly.Types.NULL.typeId:
       return 'void';
     case Blockly.Types.UNDEF.typeId:
