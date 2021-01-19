@@ -52,10 +52,10 @@ Blockly.Blocks['smartcar_ultrasound_simple'] = {
         .appendField('distance in cm')
 		.appendField('trigger pin')
         .appendField(new Blockly.FieldDropdown(
-            [['A0', 'A0']].concat(Blockly.Arduino.Boards.selected.digitalPins)), 'TRIGGER_PIN')
+            Blockly.Arduino.Boards.selected.digitalPins), 'TRIGGER_PIN')
 		.appendField('echo pin')
         .appendField(new Blockly.FieldDropdown(
-		[['A1', 'A1']].concat(Blockly.Arduino.Boards.selected.digitalPins)), 'ECHO_PIN');
+		Blockly.Arduino.Boards.selected.digitalPins), 'ECHO_PIN');
         
     this.setInputsInline(true);
     this.setOutput(true);
@@ -69,19 +69,19 @@ Blockly.Blocks['smartcar_l298n_simple'] = {
     this.appendDummyInput()
 		.appendField('Left dir pin')
         .appendField(new Blockly.FieldDropdown(
-            [['7', '7']].concat(Blockly.Arduino.Boards.selected.digitalPins)), 'LEFT_DIR_PIN')
+            Blockly.Arduino.Boards.selected.digitalPins), 'LEFT_DIR_PIN')
 	this.appendDummyInput()
 		.appendField('Left thrust pin')
         .appendField(new Blockly.FieldDropdown(
-			[['6', '6']].concat(Blockly.Arduino.Boards.selected.digitalPins)), 'LEFT_THRUST_PIN')
+			Blockly.Arduino.Boards.selected.digitalPins), 'LEFT_THRUST_PIN')
 	this.appendDummyInput()
 		.appendField('Right thrust pin')
         .appendField(new Blockly.FieldDropdown(
-            [['5', '5']].concat(Blockly.Arduino.Boards.selected.digitalPins)), 'RIGHT_THRUST_PIN')
+            Blockly.Arduino.Boards.selected.digitalPins), 'RIGHT_THRUST_PIN')
 	this.appendDummyInput()
 		.appendField('Right dir pin')
         .appendField(new Blockly.FieldDropdown(
-		[['4', '4']].concat(Blockly.Arduino.Boards.selected.digitalPins)), 'RIGHT_DIR_PIN')
+		Blockly.Arduino.Boards.selected.digitalPins), 'RIGHT_DIR_PIN')
 //	this.appendDummyInput()
     this.appendValueInput("left")
         .setCheck("Number")
