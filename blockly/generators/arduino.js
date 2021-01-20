@@ -213,8 +213,10 @@ Blockly.Arduino.addInclude = function(includeTag, code) {
  * @param {!string} code Code to be added below the includes.
  */
 Blockly.Arduino.addDeclaration = function(declarationTag, code) {
-  if (Blockly.Arduino.definitions_[declarationTag] === undefined) {
-    Blockly.Arduino.definitions_[declarationTag] = code;
+  if (Blockly.Arduino.definitions_!==undefined){
+    if (Blockly.Arduino.definitions_[declarationTag] === undefined) {
+      Blockly.Arduino.definitions_[declarationTag] = code;
+    }
   }
 };
 

@@ -210,10 +210,11 @@ Ardublockly.TOOLBOX_XML =
 '      </value>'+
 '    </block>' +
 '    <block type="attach_interrupt"></block>' +
-'    <block type="attach_interruptpin"></block>' +
+//'    <block type="attach_interruptpin"></block>' +
 '    <block type="routine_setup"></block>' +
 '    <block type="attach_routine"></block>' +
 '    <block type="en_interrupt"></block>' +
+'    <block type="volatile_block"></block>' +
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catTime" name="Time">' +
