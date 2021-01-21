@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "carlosperate",
-		"lastupdated": "2018-02-01 17:45:04.552000",
+		"lastupdated": "2021-01-18 09:23:57.507000",
 		"locale": "en",
 		"messagedocumentation" : "qqq_ardublockly"
 	},
@@ -121,7 +121,8 @@
 	"RENAME_INSTANCE": "Rename instance...",
 	"NEW_INSTANCE_TITLE": "New instance name:",
 	"RENAME_INSTANCE_TITLE": "Rename all '%1' instances to:",
-	"ARD_LCD_SETUP": "Setup LCD",
+	"ARD_FUN_RUN_DECLARE": "Declarations:",
+		"ARD_LCD_SETUP": "Setup LCD",
  	"ARD_LCD_DATACOUNT": "Number of data",
  	"ARD_LCD_HASRW": "RW signal connected ?",
  	"ARD_LCD_ROWS": "Number of rows",

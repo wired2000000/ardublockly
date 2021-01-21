@@ -291,11 +291,16 @@ Ardublockly.TOOLBOX_XML =
 
 
 '  <category id="catControl" name="Car Control">' +
-'    <block type="smartcar_l298n_simple">'+
+
+'   <block type="smartcar_definepins_simple">'+
 '      <field name="LEFT_DIR_PIN">7</field>' +
 '      <field name="LEFT_THRUST_PIN">6</field>' +
 '      <field name="RIGHT_THRUST_PIN">5</field>' +
 '      <field name="RIGHT_DIR_PIN">4</field>' +
+'	</block>' +
+
+'    <block type="smartcar_l298n_simple">'+
+
 '      <value name="left">' +
 '        <shadow type="math_number">' +
 '          <field name="NUM">255</field>' +
@@ -619,7 +624,64 @@ Ardublockly.TOOLBOX_XML =
 '	 </block>' +
 '	</category>' +
 '  <sep></sep>' +
-/*'		<category id="catBMP180" name="BMP180" >' +
+
+'  <sep></sep>' +
+'  <category id="catSD" name="SD">' +
+'    <block type="sd_setup"></block>' +
+'    <block type="sd_open">'+
+'      <value name="DIR">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'	 </block>' +
+'    <block type="sd_exists">'+
+'      <value name="DIR">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'	 </block>' +
+'    <block type="sd_actions">'+
+'      <value name="DIR">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'	 </block>' +
+'    <block type="file_instance"></block>' +
+'    <block type="file_info"></block>' +
+'    <block type="file_read"></block>' +
+'    <block type="file_write">'+
+'      <value name="data">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'	 </block>' +
+'    <block type="file_seek">'+
+'      <value name="data">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0</field>' +
+'        </block>' +
+'      </value>' +
+' 	 </block>' +
+'    <block type="file_close">'+
+'	 </block>' +
+'    <block type="file_readbmp">'+
+'      <value name="data">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'	 </block>' +
+'    <block type="file_readbuffer">'+
+'      <value name="length">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0</field>' +
+'        </block>' +
+'      </value>' +
+'	 </block>' +
+'  </category>' +
+'  <sep></sep>' +
+'  <category id="catRawCode" name="Raw Code">' +
+'    <block type="raw_func"></block>' +
+'    <block type="raw_code"></block>' +
+'    <block type="raw_output"></block>' +
+'  </category>' +
+'  <sep></sep>' +
+'  <category id="More_adv" name="More adv.">' +
+'		<category id="catBMP180" name="BMP180" >' +
 '			<block type="bmp_simplebegin"></block>' +
 '			<block type="bmp_begin"></block>' +
 '			<block type="bmp_getdata">'+
@@ -650,9 +712,9 @@ Ardublockly.TOOLBOX_XML =
 '			</block>' +
 '			<block type="bmp_startdata"></block>' +
 '			<block type="bmp_geterror"></block>' +
-'		</category>' +*/
+'		</category>' +
 '		<sep></sep>' +
-/*'		<category id="catRFM69" name="RFM69">' +
+'		<category id="catRFM69" name="RFM69">' +
 '			<block type="rfm69_instance">'+
 '				<value name="ID">' +
 '					<block type="math_number">' +
@@ -717,9 +779,9 @@ Ardublockly.TOOLBOX_XML =
 '        			<block type="text"></block>' +
 '      			</value>' +
 '			</block>' +
-'		</category>' +*/
+'		</category>' +
 '		<sep></sep>' +
-/*'  <category id="catIMU" name="IMU">' +
+'  <category id="catIMU" name="IMU">' +
 '    <block type="madgwick_setup">'+
 '		<value name="madgwick_freq">' +
 '			<block type="math_number">' +
@@ -733,71 +795,15 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="imu_orientation"></block>' +
 '    <block type="imu_read_data"></block>' +
 '    <block type="imu_rawdata"></block>' +
-'  </category>' +*/
-'  <sep></sep>' +
-'  <category id="catSD" name="SD">' +
-'    <block type="sd_setup"></block>' +
-'    <block type="sd_open">'+
-'      <value name="DIR">' +
-'        <block type="text"></block>' +
-'      </value>' +
-'	 </block>' +
-'    <block type="sd_exists">'+
-'      <value name="DIR">' +
-'        <block type="text"></block>' +
-'      </value>' +
-'	 </block>' +
-'    <block type="sd_actions">'+
-'      <value name="DIR">' +
-'        <block type="text"></block>' +
-'      </value>' +
-'	 </block>' +
-'    <block type="file_instance"></block>' +
-'    <block type="file_info"></block>' +
-'    <block type="file_read"></block>' +
-'    <block type="file_write">'+
-'      <value name="data">' +
-'        <block type="text"></block>' +
-'      </value>' +
-'	 </block>' +
-'    <block type="file_seek">'+
-'      <value name="data">' +
-'        <block type="math_number">' +
-'          <field name="NUM">0</field>' +
-'        </block>' +
-'      </value>' +
-' 	 </block>' +
-'    <block type="file_close">'+
-'	 </block>' +
-'    <block type="file_readbmp">'+
-'      <value name="data">' +
-'        <block type="text"></block>' +
-'      </value>' +
-'	 </block>' +
-'    <block type="file_readbuffer">'+
-'      <value name="length">' +
-'        <block type="math_number">' +
-'          <field name="NUM">0</field>' +
-'        </block>' +
-'      </value>' +
-'	 </block>' +
 '  </category>' +
-'  <sep></sep>' +
-'  <category id="catRawCode" name="Raw Code">' +
-'    <block type="raw_func"></block>' +
-'    <block type="raw_code"></block>' +
-'    <block type="raw_output"></block>' +
-'  </category>' +
-
-'  <sep></sep>' +
-/*'  <category id="catPID" name="PID">' +
-'    <block type="pid_setup"></block>' +
-'    <block type="pid_compute"></block>' +
-'    <block type="pid_settuning"></block>' +
-'    <block type="pid_gettuning"></block>' +
-'    <block type="pid_setlimits"></block>' +
-'    <block type="pid_settime"></block>' +
-'  </category>' +*/
+'    <category id="catPID" name="PID">' +
+'      <block type="pid_setup"></block>' +
+'      <block type="pid_compute"></block>' +
+'      <block type="pid_settuning"></block>' +
+'      <block type="pid_gettuning"></block>' +
+'      <block type="pid_setlimits"></block>' +
+'      <block type="pid_settime"></block>' +
+'    </category>' +
 ' </category>' +
-
+' </category>' +
 '</xml>';

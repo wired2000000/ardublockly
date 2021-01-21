@@ -27,43 +27,47 @@ Blockly.Arduino['smartcar_ultrasound_simple'] = function(block) {
   return [code, Blockly.Arduino.ORDER_NONE];
 };
 
+Blockly.Arduino['smartcar_definepins_simple'] = function(block) {
+  var left_dir_pin = block.getFieldValue('LEFT_DIR_PIN');
+  var left_thrust_pin = block.getFieldValue('LEFT_THRUST_PIN');
+  var right_thrust_pin = block.getFieldValue('RIGHT_THRUST_PIN');
+  var right_dir_pin = block.getFieldValue('RIGHT_DIR_PIN');
+
+  var movecar = 'void movecar(int left_thrust, int right_thrust,int left_dir_pin,int left_thrust_pin, int right_thrust_pin, int right_dir_pin){\n'+
+  ' if( right_thrust >255) right_thrust=255;\n'+
+  ' if( right_thrust <-255) right_thrust=-255;\n'+
+  ' if( right_thrust>0){ \n'+
+  '   digitalWrite(right_dir_pin,LOW);} else {\n'+
+  '   digitalWrite(right_dir_pin,HIGH); \n'+
+  '   right_thrust=255-right_thrust;}\n'+
+  ' if( left_thrust >255) left_thrust=255;\n'+
+  ' if( left_thrust <-255) left_thrust=-255;\n'+
+  ' if( left_thrust>0){ \n'+
+  '   digitalWrite(left_dir_pin,LOW);} else {\n'+
+  '   digitalWrite(left_dir_pin,HIGH); \n'+
+  '   left_thrust=255-left_thrust;}\n'+
+  ' analogWrite(right_thrust_pin,right_thrust);\n'+
+  ' analogWrite(left_thrust_pin,left_thrust);\n'+
+  // '\t \n'+
+  //'\t  \n'+
+  '}';
+ 
+  var setupcar = 'pinMode('+right_dir_pin+',OUTPUT);\n'+
+   '  pinMode('+right_thrust_pin+',OUTPUT);\n'+
+   '  pinMode('+left_thrust_pin+',OUTPUT);\n'+
+   '  pinMode('+left_dir_pin+',OUTPUT);\n';
+Blockly.Arduino.addDeclaration('smartcarsimpleDefine', movecar );
+  Blockly.Arduino.addSetup('SmartcarsimplePins'+left_dir_pin+left_thrust_pin+right_thrust_pin+right_dir_pin, setupcar);
+  var code = '';
+  return code;
+};
 
 Blockly.Arduino['smartcar_l298n_simple'] = function(block) {
 
   var left = Blockly.Arduino.valueToCode(block, 'right', Blockly.Arduino.ORDER_ATOMIC);
   var right = Blockly.Arduino.valueToCode(block, 'left', Blockly.Arduino.ORDER_ATOMIC);
-  var left_dir_pin = block.getFieldValue('LEFT_DIR_PIN');
-  var left_thrust_pin = block.getFieldValue('LEFT_THRUST_PIN');
-  var right_thrust_pin = block.getFieldValue('RIGHT_THRUST_PIN');
-  var right_dir_pin = block.getFieldValue('RIGHT_DIR_PIN');
+     
   
-
-  var movecar = 'void move(int left_thrust, int right_thrust,int left_dir_pin,int left_thrust_pin, int right_thrust_pin, int right_dir_pin){\n'+
-  '\t if( right_thrust >255) right_thrust=255;\n'+
-  '\t if( right_thrust <-255) right_thrust=-255;\n'+
-  '\t if( right_thrust>0){ \n'+
-  '\t    digitalWrite(right_dir_pin,LOW);} else {\n'+
-  '\t    digitalWrite(right_dir_pin,HIGH); \n'+
-  '\t    right_thrust=255-right_thrust;}\n'+
-  '\t if( left_thrust >255) left_thrust=255;\n'+
-  '\t if( left_thrust <-255) left_thrust=-255;\n'+
-  '\t if( left_thrust>0){ \n'+
-  '\t    digitalWrite(left_dir_pin,LOW);} else {\n'+
-  '\t    digitalWrite(left_dir_pin,HIGH); \n'+
-  '\t    left_thrust=255-left_thrust;}\n'+
-  '\t analogWrite(right_thrust_pin,right_thrust);\n'+
-  '\t analogWrite(left_thrust_pin,left_thrust);\n'+
-  '\t \n'+
-  '\t  \n'+
-  '}';
- 
- var setupcar = '\tpinMode('+right_dir_pin+',OUTPUT);\n'+
-   '\tpinMode('+right_thrust_pin+',OUTPUT);\n'+
-   '\tpinMode('+left_thrust_pin+',OUTPUT);\n'+
-   '\tpinMode('+left_dir_pin+',OUTPUT);\n';
-
-  Blockly.Arduino.addDeclaration('smartcarsimpleDefine', movecar );
-  Blockly.Arduino.addSetup('SmartcarsimplePins'+left_dir_pin+left_thrust_pin+right_thrust_pin+right_dir_pin, setupcar);
-  var code = 'move('+ left +', '+ right +','+left_dir_pin+','+left_thrust_pin+ ','+right_thrust_pin+ ','+right_dir_pin+ ');\n';
+  var code = 'movecar('+ left +', '+ right +');\n';
   return code;
 };

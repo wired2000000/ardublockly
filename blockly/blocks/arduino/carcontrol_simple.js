@@ -11,26 +11,28 @@ respect the job and support open-source software.
 
 Written by Adrian for Blascarr
 */
-Blockly.Blocks['smartcar_definepins'] = {
+Blockly.Blocks['smartcar_definepins_simple'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Motor PINs");
-    this.appendValueInput("M11")
-        .setCheck("Number")
-        .appendField("M11:");
-    this.appendValueInput("M12")
-        .setCheck("Number")
-        .appendField("M12:");
-    this.appendValueInput("M21")
-        .setCheck("Number")
-        .appendField("M21:");
-    this.appendValueInput("M22")
-        .setCheck("Number")
-        .appendField("M22:");
+ 		.appendField('Left dir pin')
+        .appendField(new Blockly.FieldDropdown(
+            Blockly.Arduino.Boards.selected.digitalPins), 'LEFT_DIR_PIN')
+	this.appendDummyInput()
+		.appendField('Left thrust pin')
+        .appendField(new Blockly.FieldDropdown(
+			Blockly.Arduino.Boards.selected.digitalPins), 'LEFT_THRUST_PIN')
+	this.appendDummyInput()
+		.appendField('Right thrust pin')
+        .appendField(new Blockly.FieldDropdown(
+            Blockly.Arduino.Boards.selected.digitalPins), 'RIGHT_THRUST_PIN')
+	this.appendDummyInput()
+		.appendField('Right dir pin')
+        .appendField(new Blockly.FieldDropdown(
+		Blockly.Arduino.Boards.selected.digitalPins), 'RIGHT_DIR_PIN')
     this.setInputsInline(true);
     this.setColour(230);
     this.setTooltip('Define Motor Pins ');
-    this.setHelpUrl('https://www.dlabs.co/curso-de-arduino-y-robotica-control-del-coche-siguelineas/');
+    //this.setHelpUrl('https://www.dlabs.co/curso-de-arduino-y-robotica-control-del-coche-siguelineas/');
   }
 };
 
@@ -59,7 +61,7 @@ Blockly.Blocks['smartcar_ultrasound_simple'] = {
         
     this.setInputsInline(true);
     this.setOutput(true);
-    this.setTooltip(Blockly.Msg.ARD_SPI_TRANSRETURN_TIP);
+    //this.setTooltip(Blockly.Msg.ARD_SPI_TRANSRETURN_TIP);
   },
   
 };
@@ -67,21 +69,7 @@ Blockly.Blocks['smartcar_ultrasound_simple'] = {
 Blockly.Blocks['smartcar_l298n_simple'] = {
   init: function() {
     this.appendDummyInput()
-		.appendField('Left dir pin')
-        .appendField(new Blockly.FieldDropdown(
-            Blockly.Arduino.Boards.selected.digitalPins), 'LEFT_DIR_PIN')
-	this.appendDummyInput()
-		.appendField('Left thrust pin')
-        .appendField(new Blockly.FieldDropdown(
-			Blockly.Arduino.Boards.selected.digitalPins), 'LEFT_THRUST_PIN')
-	this.appendDummyInput()
-		.appendField('Right thrust pin')
-        .appendField(new Blockly.FieldDropdown(
-            Blockly.Arduino.Boards.selected.digitalPins), 'RIGHT_THRUST_PIN')
-	this.appendDummyInput()
-		.appendField('Right dir pin')
-        .appendField(new Blockly.FieldDropdown(
-		Blockly.Arduino.Boards.selected.digitalPins), 'RIGHT_DIR_PIN')
+
 //	this.appendDummyInput()
     this.appendValueInput("left")
         .setCheck("Number")
@@ -94,7 +82,7 @@ Blockly.Blocks['smartcar_l298n_simple'] = {
     this.setNextStatement(true, null);
     this.setColour(230);
     this.setTooltip('Move Car Function');
-    this.setHelpUrl('https://www.dlabs.co/curso-de-arduino-y-robotica-control-del-coche-siguelineas/');
+    //this.setHelpUrl('https://www.dlabs.co/curso-de-arduino-y-robotica-control-del-coche-siguelineas/');
   }
 };
 

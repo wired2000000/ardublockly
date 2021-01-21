@@ -114,5 +114,6 @@
 	"NEW_INSTANCE": "Instances - Menu item to indicate that it will create a new instance",
 	"RENAME_INSTANCE": "Instances - Menu item to rename an instance name",
 	"NEW_INSTANCE_TITLE": "Instances - Menu item to create a new instance name and apply it to that block",
-	"RENAME_INSTANCE_TITLE": "Instances - Confirmation message that a number of instances will be renamed to a new name"
+	"RENAME_INSTANCE_TITLE": "Instances - Confirmation message that a number of instances will be renamed to a new name",
+	"ARD_FUN_RUN_DECLARE": "Declair"
 }
