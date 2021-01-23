@@ -76,8 +76,9 @@ Blockly.Arduino['volatile_block'] = function(block) {
     Blockly.Arduino.variables_[value_code] ='volatile '+Blockly.Arduino.variables_[value_code];
   }
   
-  Blockly.Arduino.addDeclaration('VOLATILE'+Blockly.Arduino.variables_[value_code],Blockly.Arduino.variables_[value_code]);
+ // Blockly.Arduino.addDeclaration('VOLATILE'+Blockly.Arduino.variables_[value_code],Blockly.Arduino.variables_[value_code]);
   //return [code, Blockly.Arduino.ORDER_NONE];
-  var code = '';
-  return code;
+ // var code = '';
+  //return code;
+  return null;
 };

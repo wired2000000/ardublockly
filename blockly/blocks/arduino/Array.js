@@ -19,11 +19,12 @@ Blockly.Blocks['array_define_empty'] = {
                                           'MyArray',
                                           true, true, false),
                 'ARRAY_NAME')
-                .appendField(Blockly.Msg.ARD_OF)
-                .appendField(new Blockly.FieldNumber('SIZE'), 'ARRAY_SIZE')
-                .appendField(new Blockly.FieldDropdown(
-                                    Blockly.Types.getValidTypeArray()),
-                                'ARRAY_TYPE');
+			.appendField(Blockly.Msg.ARD_OF)
+			.appendField(new Blockly.FieldNumber('SIZE'), 'ARRAY_SIZE')
+			.appendField(new Blockly.FieldDropdown(
+				Blockly.Types.getValidTypeArray()), 'ARRAY_TYPE');
+		this.setTooltip(Blockly.Msg.ARD_ARRAY_TOOLTIP);
+        this.setHelpUrl("https://www.arduino.cc/reference/en/language/variables/data-types/array/");
     }
 };
 
@@ -53,6 +54,8 @@ Blockly.Blocks['array_define'] = {
             .setCheck(Blockly.Types.NUMBER.checkList)
             .appendField('[0]')
             .setAlign(Blockly.ALIGN_RIGHT);
+		this.setTooltip(Blockly.Msg.ARD_ARRAY_TOOLTIP);
+        this.setHelpUrl("https://www.arduino.cc/reference/en/language/variables/data-types/array/");
     },
     updateShape_: function(newEntryCount) {
         if ( this.entryCount > newEntryCount ) {

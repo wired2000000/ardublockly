@@ -492,6 +492,13 @@ Ardublockly.TOOLBOX_XML =
 '        </block>' +
 '      </value>' +
 '    </block>' + 
+'    <block type="SCoop_sleep_sync">' +
+'      <value name="sleeplength">' +
+'        <block type="math_number">' +
+'           <field name="NUM">1000</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' + 
 '  </category>' +
 
 '  <category id="catMotors" name="Motors">' +

@@ -18,7 +18,8 @@ Ardublockly.init = function() {
   Ardublockly.injectBlockly(document.getElementById('content_blocks'),
                             Ardublockly.TOOLBOX_XML, '../blockly/');
   Ardublockly.importExtraBlocks();
-
+  
+  Ardublockly.loadBlocksfromXmlDom(document.getElementById('startBlocks'));
   Ardublockly.designJsInit();
   Ardublockly.initialiseIdeButtons();
 

@@ -109,7 +109,7 @@ Ardublockly.LOCALISED_TEXT = {
   catScoop:"Multitask Scoop",
   catDFPlayer:"Mp3 Dfplayer",
   catBMP180:"Var. pressure BMP180",
-  catRFM69:"Lora board rfm69",
+  catRFM69:"Rfm69 board",
   catIMU:"Acc. gyro sensor",
   catSD:"SD files",
   catPID:"PID control system",

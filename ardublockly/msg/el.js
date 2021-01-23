@@ -109,7 +109,7 @@ Ardublockly.LOCALISED_TEXT = {
   catScoop:"Πολυδιεργ. Scoop",
   catDFPlayer:"Αναπ. Mp3 Dfplayer",
   catBMP180:"Αισθ. βαρ. πίεσης",
-  catRFM69:"Πλακ. Lora rfm69",
+  catRFM69:"Πλ. πομποδ. rfm69",
   catIMU:"Επιταχ. γυροσκόπιο",
   catSD:"Αρχεία κάρτας SD",
   catPID:"Αυτ. έλεγχος PID",
