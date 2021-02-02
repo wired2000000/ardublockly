@@ -104,6 +104,7 @@ Blockly.Arduino['controls_for'] = function(block) {
   var branch = Blockly.Arduino.statementToCode(block, 'DO');
   branch = Blockly.Arduino.addLoopTrap(branch, block.id);
   var code;
+  Blockly.Arduino.addDeclaration('var'+variable0 , Blockly.Arduino.variables_[variable0]);
   if (Blockly.isNumber(argument0) && Blockly.isNumber(argument1) &&
       Blockly.isNumber(increment)) {
     // All arguments are simple numbers.

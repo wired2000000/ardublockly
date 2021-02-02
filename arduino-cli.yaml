@@ -1,0 +1,19 @@
+board_manager:
+  additional_urls: []
+daemon:
+  port: "50051"
+directories:
+  data: .\arduino\portable
+  downloads: .\arduino\portable\staging
+  user: .\arduino\portable
+library:
+  enable_unsafe_install: false
+logging:
+  file: ""
+  format: text
+  level: info
+sketch:
+  always_export_binaries: false
+telemetry:
+  addr: :9090
+  enabled: true
